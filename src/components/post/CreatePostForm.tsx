@@ -46,7 +46,7 @@ export default function PostForm({initialData}: {initialData?:Post | null}) {
 
   async function onSubmit(data1: PostFormValues, published: boolean) {
     if(!initialData) {
-        const fullData = {  ...data1, tagIds: selectedTagIds };
+        const fullData = {  ...data1, coverImage:data1.coverImage ?? undefined, tagIds: selectedTagIds };
       const result = await createPostAction(fullData, published);
         if (result) {
           
@@ -54,7 +54,7 @@ export default function PostForm({initialData}: {initialData?:Post | null}) {
       }
       return 
     } 
-      const updatedData = {...data1,tagIds:selectedTagIds};
+      const updatedData = {...data1, coverImage: data1.coverImage ?? undefined,tagIds:selectedTagIds};
       const result = await updatePostAction(updatedData,published);
       if(result) {
         navigate("/")

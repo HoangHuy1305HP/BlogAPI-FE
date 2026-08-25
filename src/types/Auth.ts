@@ -31,6 +31,7 @@ export type DecodedToken = {
     userId: string,
     name: string,
     email:string,
+    bio?:string | null,
     iat?:number, // bổ sung để k bị lỗi
     exp?:number, // bổ sung để k bị lỗi type
 }

@@ -21,7 +21,7 @@ export default function useLogin() {
 
             const decode = jwtDecode<DecodedToken>(accessToken);
             console.log(decode)
-            setAuth({id:decode.userId, name:decode.name, email:decode.email},accessToken,refreshToken)
+            setAuth({id:decode.userId, name:decode.name, email:decode.email,bio:decode.bio ?? ""},accessToken,refreshToken)
             return true
         } catch (error) {
             if(error instanceof Error) {
